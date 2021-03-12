@@ -1,30 +1,52 @@
-global.expect = require('expect');
 
-const babel = require('babel-core');
-const jsdom = require('jsdom');
-const path = require('path');
+function shout(string) {
 
-before(function(done) {
-  const babelResult = babel.transformFileSync(
-    path.resolve(__dirname, '..', 'index.js'), {
-      presets: ['es2015']
+    return string.toUpperCase();
+
+  }
+
+ 
+
+  function whisper(string) {
+
+    return string.toLowerCase();
+
+  }
+
+  function logShout(string) {
+
+    console.log(string.toUpperCase());
+
+  }
+
+ 
+
+function logWhisper(string) {
+
+    console.log(string.toLowerCase());
+
+}
+
+function sayHiToGrandma(string) {
+
+    if (string===string.toLowerCase()){
+
+         return "I can't hear you!";
+
     }
-  );
 
-  const html = path.resolve(__dirname, '..', 'index.html')
+   
 
-  jsdom.env(html, [], {
-    src: babelResult.code,
-    virtualConsole: jsdom.createVirtualConsole().sendTo(console)
-  }, (err, window) => {
-    if (err) {
-      return done(err);
-    }
+    if (string===string.toUpperCase()){
 
-    Object.keys(window).forEach(key => {
-      global[key] = window[key];
-    });
+         return "YES INDEED!";
 
-    return done();
-  });
-});
+}
+
+if (string==="I love you, Grandma."){
+
+     return "I love you, too.";
+
+}
+
+}
